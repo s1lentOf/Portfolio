@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="about.css" rel="stylesheet">
+        <title>Mr.Ihor</title>
+        <script>
+            function redirectToPage(page)
+            {
+                window.location.href = page;
+            }
+        </script>
+
+        <style>
+            #About {
+                color: #ffffff; /* Change text color to white */
+                font-weight: bold; /* Make the text bold */
+                cursor: default; /* Change cursor to default to indicate it's not clickable */
+                pointer-events: none; /* Disable all click events */
+            }
+            h1 {
+                margin-top: 50px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <img id="img" src='logo.png' alt="Log" onclick="redirectToPage('index.html')">
+            <button id="About">About</button>
+            <button id="Degree" onclick="redirectToPage('degree.html')">Degree</button>
+            <button id="Hobby" onclick="redirectToPage('hobby.html')">Hobby</button>
+        </div>
+
+        <div class="main">
+            <div class="text-container">
+                <div class="image-container">
+                    <div class="image-box">
+                        <img src="Image1.jpg" alt="Image 1">
+                    </div>
+                    <div class="image-box">
+                        <img src="Image2.jpg" alt="Image 2">
+                    </div>
+                    <div class="image-box">
+                        <img src="Image3.jpg" alt="Image 3">
+                    </div>
+                    <div class="image-box">
+                        <img src="Image4.jpg" alt="Image 4">
+                    </div>
+                 </div>
+
+                 <h1>About!</h1>
+                 <h2>
+                    <p><hr>Hi, I'm Ihor, born and raised in Lviv, Ukraine. I am a very active person who likes to study and learn something new.</p>
+                    <p>Moreover, I am a pretty talkative person, which is why I like to communicate with people. When I was 13, my parents decided to enroll me in the local computer academy. That's how my "coding journey" started.</p>
+                    <p>It's been already 3 years since then, and I can say that I enjoy programming very much!</p>
+                </h2><hr>
+            </div>
+        </div>
+
+    </body>
+</html>

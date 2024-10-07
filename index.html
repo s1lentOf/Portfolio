@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <link href="index.css" rel="stylesheet">
+    <title>Mr.Ihor</title>
+    <script>
+      function redirectToPage(page) {
+          window.location.href = page;
+      }
+
+      let currentQuestion = 0;
+      let correctAnswers = 0;
+
+      const questions = [
+          { question: "What is 2 + 2?", options: ["3", "4", "5"], correct: 1 },
+          { question: "What is the capital of France?", options: ["Berlin", "Paris", "Rome"], correct: 1 },
+          { question: "What is 3 x 3?", options: ["6", "8", "9"], correct: 2 },
+          { question: "Which planet is known as the Red Planet?", options: ["Earth", "Mars", "Jupiter"], correct: 1 },
+          { question: "What is the boiling point of water?", options: ["90°C", "100°C", "110°C"], correct: 1 }
+      ];
+
+      function showQuiz() {
+          document.getElementById("overlay").style.display = "block";
+          document.getElementById("quiz-alert").style.display = "block";
+          loadNextQuestion();
+      }
+
+      function loadNextQuestion() {
+          if (currentQuestion < questions.length) {
+              // Update the question text
+              document.getElementById("question-text").textContent = questions[currentQuestion].question;
+
+              // Get the answer container and clear it
+              const answerContainer = document.getElementById("answer-container");
+              answerContainer.innerHTML = ''; // Clear previous buttons
+
+              // Create new buttons for the current question
+              questions[currentQuestion].options.forEach((option, index) => {
+                  const button = document.createElement("button");
+                  button.textContent = option;
+                  button.classList.add("btn", "btn-secondary", "m-2");
+                  button.onclick = () => {
+                      submitAnswer(index === questions[currentQuestion].correct);
+                  };
+                  answerContainer.appendChild(button);
+              });
+          } else {
+              checkQuizCompletion();
+          }
+      }
+
+
+      function submitAnswer(isCorrect) {
+          if (isCorrect) {
+              correctAnswers++;
+          }
+          currentQuestion++;
+          document.getElementById("answer-counter").textContent = `Correct Answers: ${correctAnswers}`;
+          loadNextQuestion();
+      }
+
+      function checkQuizCompletion() {
+          if (correctAnswers >= 3) {
+              document.getElementById("close-quiz").style.display = "block";
+          }
+      }
+
+
+      function closeQuiz() {
+          document.getElementById("overlay").style.display = "none";
+          document.getElementById("quiz-alert").style.display = "none";
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+          setTimeout(showQuiz, 2000);
+      });
+  </script>
+</head>
+<body>
+    <div class="header">
+        <img src='logo.png' alt="Log">
+        <button id="About" onclick="redirectToPage('about.html')">About</button>
+        <button id="Degree" onclick="redirectToPage('degree.html')">Degree</button>
+        <button id="Hobby" onclick="redirectToPage('hobby.html')">Hobby</button>
+    </div>
+
+    <div class="main">
+        <div class="text-container">
+            <h1>Hey, Ihor Here!</h1>
+            <h2>I am 17 years old and I am going to study Computer Science in Griffith College Dublin this year. I am a big fan of the CS50 course, so I spent almost my entire summer studying.</h2>
+            <hr>
+            <div class="instagram-button-container">
+                <a href="https://www.instagram.com/igor._ivanchenko/" class="ig-button" target="_blank">
+                    Follow me on IG
+                    <span class="arrow">➔</span>
+                </a>
+                <hr>
+            </div>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="about.jpg" class="card-img-top" alt="About_Image">
+                        <div class="card-body">
+                            <h5 class="card-title">About Me</h5>
+                            <p class="card-text">Small info about my short, but really interesting life.</p>
+                            <a href="#" class="btn btn-secondary" onclick="redirectToPage('about.html')">More about me</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="degree.jpg" class="card-img-top" alt="Degree_Image">
+                        <div class="card-body">
+                            <h5 class="card-title">My Degree</h5>
+                            <p class="card-text">My diplomas and achievements</p>
+                            <a href="#" class="btn btn-secondary" onclick="redirectToPage('degree.html')">Explore It</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <img src="hobby.jpg" class="card-img-top" alt="About_Image">
+                        <div class="card-body">
+                            <h5 class="card-title">My Hobbies</h5>
+                            <p class="card-text">Small info about my short, but really interesting life.</p>
+                            <a href="#" class="btn btn-secondary" onclick="redirectToPage('hobby.html')">More about me</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay"></div>
+
+    <div id="quiz-alert" style="display:none;">
+      <h3>Quiz Time!</h3>
+      <div id="question-container">
+          <p id="question-text"></p>
+      </div>
+      <div id="answer-container"></div> <!-- Separate container for answer buttons -->
+      <div id="answer-counter">Correct Answers: 0</div>
+      <button id="close-quiz" style="display:none;" onclick="closeQuiz()">Close Quiz</button>
+  </div>
+
+
+</body>
+</html>

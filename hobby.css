@@ -1,0 +1,109 @@
+body {
+    background-color: #000000;
+}
+.header {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    margin: 0;
+    background-color: #000000;
+}
+
+.header img {
+    height: 40px; /* Adjust the height to fit your design */
+    width: auto;
+    margin-right: 20px; /* Space between the icon and the buttons */
+    cursor: pointer;
+}
+
+.header button {
+    background: none;
+    border: none;
+    color: #bababa;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.header button:hover {
+    text-decoration: underline;
+    color: #ffffff;
+}
+
+.header button:focus {
+    outline: none;
+}
+
+.main {
+    display: flex;
+    justify-content: center; /* Centers the container horizontally */
+    align-items: center; /* Centers the container vertically */
+    background-color: #000000;
+    margin-top: 5vh;
+    margin-bottom: 7vh;
+}
+
+.text-container {
+    max-width: 600px; /* Controls the width of the text block */
+    width: 100%; /* Ensures the block doesn't exceed the max-width */
+    text-align: left; /* Aligns text to the left within the block */
+}
+
+
+.nav-tabs {
+    justify-content: center; /* Center the tabs */
+    border-bottom: none; /* Remove the default bottom border */
+    background-color: #000000; /* Match the background color */
+}
+
+.nav-tabs .nav-link {
+    color: #bababa; /* Match the inactive tab text color */
+    background-color: transparent; /* Make the background transparent */
+    border: none; /* Remove default borders */
+    font-size: 12px; /* Adjust the font size */
+    font-weight: bold; /* Match the font weight */
+    margin: 0 10px; /* Add spacing between tabs */
+    padding: 10px 15px; /* Add padding to the tabs */
+    border-radius: 5px; /* Add border radius */
+    transition: color 0.3s, background-color 0.3s; Add transitions for hover effect
+}
+
+.nav-tabs .nav-link.active {
+    color: #ffffff; /* Make the active tab white */
+    background-color: #1a1a1a; /* Add a subtle background to active tab */
+    cursor: default; /* Indicate that the active tab is not clickable */
+}
+
+.nav-tabs .nav-link:hover {
+    color: #ffffff; /* Change text color on hover */
+    background-color: #333333; /* Change background color on hover */
+}
+
+.tab-content {
+    color: #ffffff; /* Match text color */
+    padding: 5px; /* Add padding around the content */
+    background-color: #000000; /* Match the background color */
+    border: 1px solid #333333; /* Add border to content area */
+    border-radius: 10px; /* Add border radius to content area */
+    margin-top: 10px; /* Add spacing between tabs and content */
+}
+
+.tab-pane {
+    display: flex;
+    flex-direction: column;  /* Stack image and text vertically */
+    align-items: center;     /* Center them horizontally */
+    text-align: center;        /* Align text to the left */
+    padding: 10px;           /* Optional: Adds padding around the content */
+}
+
+
+.tab-pane img {
+    width: 300px;            /* Set the desired size of the image */
+    height: 300px;           /* Ensure the image is square */
+    object-fit: cover;       /* Ensures the image covers the box without stretching */
+    border-radius: 10px;     /* Adds rounded corners to the image */
+    margin-bottom: 10px;     /* Adds space between the image and the text */
+}
+
